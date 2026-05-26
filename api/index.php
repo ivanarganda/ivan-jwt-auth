@@ -2,7 +2,7 @@
 
 
 
-$page = isset($_GET['page']) ? $_GET['page'] : '';
+$page = isset($_GET['page']) ? $_GET['page'] : 'doc';
 
 $page = preg_replace('/[^a-zA-Z0-9_-]/', '', $page);
 
@@ -15,5 +15,7 @@ if (in_array("$page.php", $files)) {
     include "../src/$page.php";
 } else {
     header('Content-Type: text/html');
+    include "styles.php";
     include "../src/doc.php";
+    include "js.php";
 }
